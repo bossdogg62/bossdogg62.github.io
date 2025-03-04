@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same header -->
+    <div class="legal-content">
+        <h2>CCPA Opt-Out</h2>
+        <form id="ccpaForm">
+            <div class="mb-3">
+                <label>Full Name</label>
+                <input type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Request Type</label>
+                <select class="form-select" required>
+                    <option>Do Not Sell My Information</option>
+                    <option>Delete My Data</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-cta w-100">Submit Request</button>
+        </form>
+        <a href="index.html" class="btn btn-cta mt-3">Back to Home</a>
+    </div>
+</head>
+<body>
+    <script>
+        document.getElementById('ccpaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if(this.checkValidity()) {
+                alert('Request submitted successfully');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
