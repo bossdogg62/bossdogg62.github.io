@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,19 +15,16 @@
             --soft-gray: #F8F9FA;
         }
 
-        /* Updated Button Styles */
         .investor-btn {
             position: fixed;
-            left: 220px; /* Moved closer to center */
+            left: 280px;
             top: 35px;
             z-index: 1001;
-            padding: 10px 25px; /* Smaller padding */
-            font-size: 1rem; /* Smaller font size */
+            padding: 12px 30px;
+            font-size: 1.1rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transform: translateY(-5px); /* Better vertical alignment */
         }
 
-        /* Rest of your existing CSS remains unchanged */
         .company-brand {
             font-size: 2rem;
             font-weight: 700;
@@ -40,7 +38,65 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        /* ... (keep all other existing styles exactly the same) ... */
+        .company-brand span:first-child {
+            color: var(--primary-blue);
+            transition: color 0.3s ease;
+        }
+        .company-brand span:last-child {
+            color: var(--accent-gold);
+            transition: color 0.3s ease;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(42,92,130,0.9), rgba(42,92,130,0.9)),
+                        url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6') center/cover;
+            color: white;
+            padding: 150px 0;
+            margin-top: 80px;
+        }
+
+        .valuation-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .btn-cta {
+            background: var(--accent-gold);
+            color: white!important;
+            padding: 18px 50px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(197,164,126,0.3);
+        }
+
+        .live-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-blue);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .testimonial-card {
+            border-left: 4px solid var(--accent-gold);
+            background: var(--soft-gray);
+            padding: 20px;
+            margin: 15px 0;
+        }
     </style>
 </head>
 <body>
@@ -49,12 +105,161 @@
         <span>Nestshift</span> <span>Solutions</span>
     </div>
     
-    <!-- Updated Investor Button -->
+    <!-- Investor Button -->
     <a href="Investors.html" class="btn btn-cta investor-btn">
         For Investors/Agents
     </a>
 
+    <!-- Live Chat -->
+    <div class="live-chat animate__animated animate__pulse animate__infinite">
+        💬 Live Specialist Available
+    </div>
+
     <!-- Rest of your body content remains unchanged -->
-    <!-- ... -->
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 mb-4 fw-light">
+                Discover Your Home's Value<br>
+                <span class="fw-normal">Nationwide Expertise, Local Results</span>
+            </h1>
+            <button class="btn btn-cta btn-lg mt-4" data-bs-toggle="modal" data-bs-target="#valuationModal">
+                🏡 Start Free Valuation
+            </button>
+        </div>
+    </section>
+
+    <!-- Valuation Modal -->
+    <div class="modal fade" id="valuationModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content valuation-card">
+                <div class="modal-body p-5">
+                    <!-- Step 1: Form -->
+                    <div id="valuationStep1">
+                        <h3 class="mb-4">Get Your Instant Estimate</h3>
+                        <form id="valuationForm" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label">Property Address</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Property Condition</label>
+                                    <select class="form-select" required>
+                                        <option value="">Select Condition</option>
+                                        <option>Excellent</option>
+                                        <option>Good</option>
+                                        <option>Needs Work</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="consent" required>
+                                        <label class="form-check-label small">
+                                            I agree to receive real estate insights and potential offers
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-cta mt-4 w-100">
+                                See My Estimate →
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Step 2: Confirmation -->
+                    <div id="valuationStep2" style="display: none;">
+                        <div class="text-center p-5">
+                            <div class="mb-4" style="font-size: 4rem;">🎉</div>
+                            <h3 class="mb-3">Thank You!</h3>
+                            <p class="lead">A specialist will contact you within 24 hours</p>
+                            <p>Please check your email for updates and next steps.</p>
+                            <button class="btn btn-cta mt-4" data-bs-dismiss="modal">
+                                Close Window
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seller Tools Section -->
+    <section class="py-5" style="background: var(--soft-gray);">
+        <div class="container">
+            <h2 class="text-center mb-5">Seller Tools</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5>Selling Cost Calculator</h5>
+                            <p>Estimate your net proceeds and closing costs</p>
+                            <a href="https://www.calculator.net/mortgage-calculator.html" class="btn btn-cta" target="_blank">
+                                Calculate Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Contact</h5>
+                    <p class="mb-1">Email: <a href="mailto:agentneguse@gmail.com" class="text-white">agentneguse@gmail.com</a></p>
+                    <p>Phone: (425) 725-9580</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Legal</h5>
+                    <p class="mb-1"><a href="privacy.html" class="text-white">Privacy Policy</a></p>
+                    <p class="mb-1"><a href="terms.html" class="text-white">Terms of Service</a></p>
+                    <p class="mb-0"><a href="ccpa-opt-out.html" class="text-white">CCPA Opt-Out</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form Handling
+        document.getElementById('valuationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (this.checkValidity()) {
+                document.getElementById('valuationStep1').style.display = 'none';
+                document.getElementById('valuationStep2').style.display = 'block';
+                
+                // Reset form on modal close
+                const modal = document.getElementById('valuationModal');
+                modal.addEventListener('hidden.bs.modal', function() {
+                    document.getElementById('valuationStep1').style.display = 'block';
+                    document.getElementById('valuationStep2').style.display = 'none';
+                    document.getElementById('valuationForm').reset();
+                });
+            } else {
+                this.classList.add('was-validated');
+            }
+        });
+
+        // Live Chat Animation Refresh
+        setInterval(() => {
+            const liveChat = document.querySelector('.live-chat');
+            liveChat.classList.remove('animate__pulse');
+            void liveChat.offsetWidth;
+            liveChat.classList.add('animate__pulse');
+        }, 7000);
+    </script>
 </body>
 </html>
