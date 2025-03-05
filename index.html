@@ -14,16 +14,7 @@
             --soft-gray: #F8F9FA;
         }
 
-        .investor-btn {
-            position: fixed;
-            left: 280px;
-            top: 35px;
-            z-index: 1001;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
+        /* Company Branding */
         .company-brand {
             font-size: 2rem;
             font-weight: 700;
@@ -39,44 +30,56 @@
         }
         .company-brand span:first-child {
             color: var(--primary-blue);
-            transition: color 0.3s ease;
         }
         .company-brand span:last-child {
             color: var(--accent-gold);
-            transition: color 0.3s ease;
         }
 
-        .hero-section {
-            background: linear-gradient(rgba(42,92,130,0.9), rgba(42,92,130,0.9)),
-                        url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6') center/cover;
+        /* Investor Button */
+        .investor-btn {
+            position: fixed;
+            right: 30px;
+            top: 20px;
+            z-index: 1001;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            background: white;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .investor-btn:hover {
+            background: var(--accent-gold);
             color: white;
-            padding: 150px 0;
-            margin-top: 80px;
         }
 
-        .valuation-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
+        /* Start Free Valuation Button */
         .btn-cta {
             background: var(--accent-gold);
-            color: white!important;
-            padding: 18px 50px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            letter-spacing: 0.05em;
+            color: white;
             border: 2px solid rgba(255,255,255,0.3);
         }
-
         .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(197,164,126,0.3);
+            background: white;
+            color: var(--accent-gold);
         }
 
+        /* Chatbot Modal */
+        .chatbot-modal .modal-content {
+            border-radius: 20px;
+            border: 2px solid var(--accent-gold);
+        }
+        .chatbot-modal .modal-header {
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+        .chatbot-modal .modal-body {
+            padding: 30px;
+        }
+
+        /* Live Chat Button */
         .live-chat {
             position: fixed;
             bottom: 30px;
@@ -90,11 +93,35 @@
             cursor: pointer;
         }
 
-        .testimonial-card {
-            border-left: 4px solid var(--accent-gold);
-            background: var(--soft-gray);
-            padding: 20px;
-            margin: 15px 0;
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(42,92,130,0.9), rgba(42,92,130,0.9)),
+                        url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6') center/cover;
+            color: white;
+            padding: 150px 0;
+            margin-top: 80px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .company-brand {
+                font-size: 1.5rem;
+                left: 15px;
+                top: 15px;
+                padding: 8px 15px;
+            }
+            .investor-btn {
+                right: 15px;
+                top: 15px;
+                padding: 6px 15px;
+                font-size: 0.8rem;
+            }
+            .live-chat {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -103,18 +130,92 @@
     <div class="company-brand">
         <span>Nestshift</span> <span>Solutions</span>
     </div>
-    
-    <!-- Investor Button -->
-    <a href="Investors.html" class="btn btn-cta investor-btn">
-        For Investors/Agents
-    </a>
 
-    <!-- Live Chat -->
-    <div class="live-chat animate__animated animate__pulse animate__infinite">
+    <!-- Investor Button -->
+    <button class="btn investor-btn" data-bs-toggle="modal" data-bs-target="#investorModal">
+        For Investors/Agents
+    </button>
+
+    <!-- Investor Modal -->
+    <div class="modal fade" id="investorModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Exclusive Leads for Your Market</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="lead mb-4">
+                        Take back your valuable time, we got you! Get exclusive leads for your market - 
+                        no lead you buy from us will ever be shared with another agent or investor.
+                    </p>
+                    <form id="investorForm" action="send_email.php" method="POST">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="full_name" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="policyCheck" required>
+                            <label class="form-check-label" for="policyCheck">
+                                I have read and accept the privacy policy and I opt in on future contact with Nestshift Solutions.
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-cta">Get Exclusive Leads</button>
+                    </form>
+                    <div id="investorThankYou" style="display: none;">
+                        <div class="text-center p-4">
+                            <h3>Thank You for Choosing Nestshift Solutions!</h3>
+                            <p>A specialist will be with you shortly.</p>
+                            <button class="btn btn-cta" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Chat Button -->
+    <div class="live-chat animate__animated animate__pulse animate__infinite" data-bs-toggle="modal" data-bs-target="#chatbotModal">
         💬 Live Specialist Available
     </div>
 
-    <!-- Rest of your body content remains unchanged -->
+    <!-- Chatbot Modal -->
+    <div class="modal fade chatbot-modal" id="chatbotModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chat with a Specialist</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="lead mb-4">OK! Let me transfer you to a representative. What's your phone number and email?</p>
+                    <form id="chatbotForm" action="send_email.php" method="POST">
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <button type="submit" class="btn btn-cta">Submit</button>
+                    </form>
+                    <div id="chatbotThankYou" style="display: none;">
+                        <div class="text-center p-4">
+                            <h3>Thank You!</h3>
+                            <p>A representative will be with you shortly.</p>
+                            <button class="btn btn-cta" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rest of your original content -->
     <!-- Hero Section -->
     <section class="hero-section text-center">
         <div class="container">
@@ -131,29 +232,25 @@
     <!-- Valuation Modal -->
     <div class="modal fade" id="valuationModal">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content valuation-card">
+            <div class="modal-content">
                 <div class="modal-body p-5">
                     <!-- Step 1: Form -->
                     <div id="valuationStep1">
                         <h3 class="mb-4">Get Your Instant Estimate</h3>
-                        <form id="valuationForm" class="needs-validation" novalidate>
+                        <form id="valuationForm" action="send_email.php" method="POST">
                             <div class="row g-3">
                                 <div class="col-12">
-                                    <label class="form-label">Property Address</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" name="address" placeholder="Property Address" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" required>
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" required>
+                                    <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label">Property Condition</label>
-                                    <select class="form-select" required>
-                                        <option value="">Select Condition</option>
+                                    <select class="form-select" name="condition" required>
+                                        <option value="">Select Property Condition</option>
                                         <option>Excellent</option>
                                         <option>Good</option>
                                         <option>Needs Work</option>
@@ -232,24 +329,50 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Form Handling
-        document.getElementById('valuationForm').addEventListener('submit', function(e) {
+        // Form Handling for Investor Modal
+        document.getElementById('investorForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             if (this.checkValidity()) {
-                document.getElementById('valuationStep1').style.display = 'none';
-                document.getElementById('valuationStep2').style.display = 'block';
-                
-                // Reset form on modal close
-                const modal = document.getElementById('valuationModal');
-                modal.addEventListener('hidden.bs.modal', function() {
-                    document.getElementById('valuationStep1').style.display = 'block';
-                    document.getElementById('valuationStep2').style.display = 'none';
-                    document.getElementById('valuationForm').reset();
-                });
+                document.getElementById('investorForm').style.display = 'none';
+                document.getElementById('investorThankYou').style.display = 'block';
             } else {
                 this.classList.add('was-validated');
             }
+        });
+
+        // Form Handling for Chatbot Modal
+        document.getElementById('chatbotForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (this.checkValidity()) {
+                document.getElementById('chatbotForm').style.display = 'none';
+                document.getElementById('chatbotThankYou').style.display = 'block';
+            } else {
+                this.classList.add('was-validated');
+            }
+        });
+
+        // Form Handling for Valuation Modal
+        document.getElementById('valuationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (this.checkValidity()) {
+                document.getElementById('valuationStep1').style.display = 'none';
+                document.getElementById('valuationStep2').style.display = 'block';
+            } else {
+                this.classList.add('was-validated');
+            }
+        });
+
+        // Reset Modals on Close
+        const modals = ['investorModal', 'chatbotModal', 'valuationModal'];
+        modals.forEach(modalId => {
+            const modal = document.getElementById(modalId);
+            modal.addEventListener('hidden.bs.modal', function() {
+                const form = modal.querySelector('form');
+                const thankYou = modal.querySelector('[id$="ThankYou"]');
+                if (form) form.style.display = 'block';
+                if (thankYou) thankYou.style.display = 'none';
+                if (form) form.reset();
+            });
         });
 
         // Live Chat Animation Refresh
