@@ -235,6 +235,72 @@
             justify-content: center;
             padding: 20px;
         }
+
+        /* Disclaimer Modal Styles */
+        .disclaimer-modal .modal-content {
+            border-radius: 15px;
+            border: 2px solid var(--accent-gold);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .disclaimer-modal .modal-header {
+            border-bottom: none;
+            padding: 20px;
+            text-align: center;
+        }
+        .disclaimer-modal .modal-body {
+            padding: 20px;
+            text-align: left;
+        }
+        .disclaimer-modal .modal-body h3 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .disclaimer-modal .modal-body p {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+        .disclaimer-modal .modal-footer {
+            border-top: none;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Client Testimonials Section */
+        #client-testimonials {
+            background: var(--soft-gray);
+            padding: 60px 0;
+        }
+        #client-testimonials h2 {
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .testimonial-card p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            margin-bottom: 0;
+        }
+        .testimonial-card .client-name {
+            font-weight: 500;
+            color: var(--primary-blue);
+            margin-top: 10px;
+        }
     </style>
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -294,15 +360,19 @@
     <!-- Sample Property Data Section -->
     <section id="sample-data" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-4">Sample Property Data</h2>
+            <h2 class="text-center mb-4">Sample Property Data <span class="text-muted">(More datasets in actual leads)</span></h2>
             <p class="sample-data-note">This sample list set is property data for basic $0.70 leads.</p>
             <div class="table-responsive">
                 <table class="property-table">
                     <thead>
                         <tr>
+                            <th>Motivation</th>
                             <th>Full Name</th>
                             <th>Address</th>
                             <th>Phone #</th>
+                            <th>Email</th>
+                            <th>Lien #</th>
+                            <th>LTV</th>
                             <th>Property Type</th>
                             <th>Bedrooms</th>
                             <th>Bathrooms</th>
@@ -316,9 +386,13 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>Pre-foreclosure</td>
                             <td>***</td>
                             <td>***</td>
                             <td>***</td>
+                            <td>****@gmail.com</td>
+                            <td>2</td>
+                            <td>75%</td>
                             <td>Single Family Res*</td>
                             <td>4</td>
                             <td>3</td>
@@ -330,9 +404,13 @@
                             <td>$665,241</td>
                         </tr>
                         <tr>
+                            <td>Probate</td>
                             <td>***</td>
                             <td>***</td>
                             <td>***</td>
+                            <td>******@yahoo.com</td>
+                            <td>1</td>
+                            <td>65%</td>
                             <td>Single Family Res*</td>
                             <td>4</td>
                             <td>4</td>
@@ -344,9 +422,13 @@
                             <td>$1,106,966</td>
                         </tr>
                         <tr>
+                            <td>Divorce</td>
                             <td>***</td>
                             <td>***</td>
                             <td>***</td>
+                            <td>*****@live.com</td>
+                            <td>0</td>
+                            <td>50%</td>
                             <td>Condominium (Res)</td>
                             <td>1</td>
                             <td>1</td>
@@ -358,9 +440,13 @@
                             <td>$408,000</td>
                         </tr>
                         <tr>
+                            <td>Bankruptcy</td>
                             <td>***</td>
                             <td>***</td>
                             <td>***</td>
+                            <td>****@gmail.com</td>
+                            <td>3</td>
+                            <td>80%</td>
                             <td>Single Family Res*</td>
                             <td>3</td>
                             <td>1</td>
@@ -372,9 +458,13 @@
                             <td>$395,014</td>
                         </tr>
                         <tr>
+                            <td>Liens</td>
                             <td>***</td>
                             <td>***</td>
                             <td>***</td>
+                            <td>******@yahoo.com</td>
+                            <td>5</td>
+                            <td>90%</td>
                             <td>Single Family Res*</td>
                             <td>4</td>
                             <td>1</td>
@@ -454,6 +544,59 @@
                         </div>
                     </div>
                 </div>
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Are these leads Raw?
+                        </button>
+                    </h3>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, they are raw and have a motivation backed by over 30+ property data points. This is great because it allows you to nurture leads early and build relationships before they become highly competitive.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Where do you get your data from?
+                        </button>
+                    </h3>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            We source our data from a variety of public and reliable sources, including Public Directories, Government Sites, Social Media, and Search Engines. This ensures the accuracy and comprehensiveness of our leads.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials Section -->
+    <section id="client-testimonials" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Client Testimonials</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"These leads added volume back to my real estate business, great for work between meetings."</p>
+                        <div class="client-name">- Jordan N.</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"The amount of data makes prospecting time almost cut in half, great data."</p>
+                        <div class="client-name">- Ian L.</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Refilled my pipeline at 80% off other leads companies."</p>
+                        <div class="client-name">- Carlos S.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -467,6 +610,29 @@
                 </div>
                 <div class="modal-body">
                     <p>With over 9 years of Lead Generation and Prospecting, combined with AI-driven Data Mining tools, we thrive off pure data-driven results. All the experience and volume-driven tools we use allow us to give you a quality product at wholesale prices.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cta" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disclaimer Modal -->
+    <div class="modal fade disclaimer-modal" id="disclaimerModal" tabindex="-1" aria-labelledby="disclaimerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="disclaimerModalLabel">Disclaimer</h3>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Nature of Leads:</strong> The leads provided are compiled from various sources and may include individuals with varying preferences regarding communication. It is your responsibility to ensure that your outreach methods comply with all applicable laws and regulations.</p>
+                    <p><strong>Compliance with Laws:</strong> You are solely responsible for ensuring that your marketing and outreach activities comply with all applicable laws, regulations, and guidelines, including but not limited to the Telephone Consumer Protection Act (TCPA), the CAN-SPAM Act, and the General Data Protection Regulation (GDPR) (if applicable).</p>
+                    <p><strong>Communication Methods:</strong> While email and direct mail are generally less restricted than phone calls, you must still comply with all applicable laws. For email marketing, ensure compliance with the CAN-SPAM Act, which requires providing a clear and conspicuous opt-out mechanism, including your physical mailing address in all emails, and avoiding deceptive subject lines or content. For direct mail, ensure compliance with postal regulations and avoid sending unsolicited mail to individuals who have explicitly opted out.</p>
+                    <p><strong>No Liability:</strong> We are not responsible for any violations of laws or regulations resulting from your use of the leads. By purchasing or using these leads, you agree to indemnify and hold us harmless from any claims, damages, or liabilities arising from your use of the leads.</p>
+                    <p><strong>Data Accuracy:</strong> While we strive to provide accurate and up-to-date information, we cannot guarantee the accuracy, completeness, or reliability of the leads. It is your responsibility to verify the information before use.</p>
+                    <p><strong>Ethical Use:</strong> You agree to use the leads ethically and responsibly. Misuse of the leads, including but not limited to harassment, fraud, or illegal activities, is strictly prohibited.</p>
+                    <p><strong>Acknowledgment:</strong> By purchasing or using these leads, you acknowledge that you have read and understood this disclaimer. You are solely responsible for ensuring compliance with all applicable laws and regulations, and you will not hold us liable for any consequences arising from your use of the leads.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-cta" data-bs-dismiss="modal">Close</button>
@@ -508,6 +674,7 @@
                 </div>
                 <div class="col-md-6 text-md-end">
                     <h5>Legal</h5>
+                    <p class="mb-1"><a href="#" data-bs-toggle="modal" data-bs-target="#disclaimerModal">Disclaimer</a></p>
                     <p class="mb-1"><a href="privacy.html" class="text-white">Privacy Policy</a></p>
                     <p class="mb-1"><a href="terms.html" class="text-white">Terms of Service</a></p>
                     <p class="mb-0"><a href="ccpa-opt-out.html" class="text-white">CCPA Opt-Out</a></p>
