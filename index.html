@@ -204,6 +204,37 @@
             background: white;
             color: var(--dark-gray);
         }
+
+        /* About Us Modal Styles */
+        .about-us-modal .modal-content {
+            border-radius: 15px;
+            border: 2px solid var(--accent-gold);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .about-us-modal .modal-header {
+            border-bottom: none;
+            padding: 20px;
+            text-align: center;
+        }
+        .about-us-modal .modal-body {
+            padding: 20px;
+            text-align: center;
+        }
+        .about-us-modal .modal-body h3 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .about-us-modal .modal-body p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+        }
+        .about-us-modal .modal-footer {
+            border-top: none;
+            justify-content: center;
+            padding: 20px;
+        }
     </style>
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -238,6 +269,9 @@
         <div class="container">
             <div class="company-brand">
                 <span>Nestshift</span> <span>Solutions</span>
+            </div>
+            <div class="ms-auto">
+                <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#aboutUsModal">About Us</button>
             </div>
         </div>
     </nav>
@@ -423,6 +457,23 @@
             </div>
         </div>
     </section>
+
+    <!-- About Us Modal -->
+    <div class="modal fade about-us-modal" id="aboutUsModal" tabindex="-1" aria-labelledby="aboutUsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="aboutUsModalLabel">About Us</h3>
+                </div>
+                <div class="modal-body">
+                    <p>With over 9 years of Lead Generation and Prospecting, combined with AI-driven Data Mining tools, we thrive off pure data-driven results. All the experience and volume-driven tools we use allow us to give you a quality product at wholesale prices.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cta" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Thank You Modal -->
     <div class="modal fade thank-you-modal" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
