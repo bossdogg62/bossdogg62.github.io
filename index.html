@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nestshift Solutions | Luxury Real Estate Experts</title>
+    <title>Nestshift Solutions | AI Targeted Real Estate Leads</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #2A5C82;
             --accent-gold: #C5A47E;
             --soft-gray: #F8F9FA;
+            --dark-gray: #333;
         }
 
-        /* Company Branding */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-gray);
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
         .company-brand {
             font-size: 2rem;
             font-weight: 700;
-            position: fixed;
-            left: 30px;
-            top: 20px;
-            z-index: 1000;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             background: rgba(255,255,255,0.9);
             padding: 10px 20px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
         .company-brand span:first-child {
             color: var(--primary-blue);
@@ -35,281 +48,285 @@
             color: var(--accent-gold);
         }
 
-        /* Investor Button */
-        .investor-btn {
-            position: fixed;
-            right: 30px;
-            top: 20px;
-            z-index: 1001;
-            padding: 8px 20px;
-            font-size: 0.9rem;
-            background: white;
-            color: var(--accent-gold);
-            border: 2px solid var(--accent-gold);
-            border-radius: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .investor-btn:hover {
-            background: var(--accent-gold);
-            color: white;
-        }
-
-        /* Start Free Valuation Button */
-        .btn-cta {
-            background: var(--accent-gold);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        .btn-cta:hover {
-            background: white;
-            color: var(--accent-gold);
-        }
-
-        /* Chatbot Modal */
-        .chatbot-modal .modal-content {
-            border-radius: 20px;
-            border: 2px solid var(--accent-gold);
-        }
-        .chatbot-modal .modal-header {
-            background: var(--primary-blue);
-            color: white;
-            border-radius: 20px 20px 0 0;
-        }
-        .chatbot-modal .modal-body {
-            padding: 30px;
-        }
-
-        /* Live Chat Button */
-        .live-chat {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary-blue);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            z-index: 1000;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
         .hero-section {
             background: linear-gradient(rgba(42,92,130,0.9), rgba(42,92,130,0.9)),
                         url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6') center/cover;
             color: white;
             padding: 150px 0;
-            margin-top: 80px;
+            text-align: center;
+            margin-top: 80px; /* To account for the fixed navbar */
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .company-brand {
-                font-size: 1.5rem;
-                left: 15px;
-                top: 15px;
-                padding: 8px 15px;
-            }
-            .investor-btn {
-                right: 15px;
-                top: 15px;
-                padding: 6px 15px;
-                font-size: 0.8rem;
-            }
-            .live-chat {
-                bottom: 15px;
-                right: 15px;
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
+        .btn-cta {
+            background: var(--accent-gold);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-cta:hover {
+            background: white;
+            color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .property-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .property-table th, .property-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .property-table th {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        .property-table tr:nth-child(even) {
+            background-color: var(--soft-gray);
+        }
+
+        .lead-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-top: 10px;
+        }
+
+        .sample-data-note {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .advanced-features {
+            background: var(--soft-gray);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .advanced-features h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        .advanced-features p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+        }
+
+        /* Thank You Modal Styles */
+        .thank-you-modal .modal-content {
+            border-radius: 15px;
+            border: 2px solid var(--accent-gold);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .thank-you-modal .modal-header {
+            border-bottom: none;
+            padding: 20px;
+            text-align: center;
+        }
+        .thank-you-modal .modal-body {
+            padding: 20px;
+            text-align: center;
+        }
+        .thank-you-modal .modal-body h3 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .thank-you-modal .modal-body p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+        }
+        .thank-you-modal .modal-footer {
+            border-top: none;
+            justify-content: center;
+            padding: 20px;
+        }
+        .thank-you-modal .btn-close {
+            display: none; /* Hide the default close button */
         }
     </style>
 </head>
 <body>
-    <!-- Company Branding -->
-    <div class="company-brand">
-        <span>Nestshift</span> <span>Solutions</span>
-    </div>
-
-    <!-- Investor Button -->
-    <button class="btn investor-btn" data-bs-toggle="modal" data-bs-target="#investorModal">
-        For Investors/Agents
-    </button>
-
-    <!-- Investor Modal -->
-    <div class="modal fade" id="investorModal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Exclusive Leads for Your Market</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="lead mb-4">
-                        Take back your valuable time, we got you! Get exclusive leads for your market - 
-                        no lead you buy from us will ever be shared with another agent or investor.
-                    </p>
-                    <form id="investorForm" action="send_email.php" method="POST">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="full_name" placeholder="Full Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" id="policyCheck" required>
-                            <label class="form-check-label" for="policyCheck">
-                                I have read and accepted the privacy policy and I opt in to future contact with Nestshift Solutions. Message and data rates may apply.
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-cta">Get Exclusive Leads</button>
-                    </form>
-                    <div id="investorThankYou" style="display: none;">
-                        <div class="text-center p-4">
-                            <h3>Thank You for Choosing Nestshift Solutions!</h3>
-                            <p>A specialist will be with you shortly.</p>
-                            <button class="btn btn-cta" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Live Chat Button -->
-    <div class="live-chat animate__animated animate__pulse animate__infinite" data-bs-toggle="modal" data-bs-target="#chatbotModal">
-        💬 Live Specialist Available
-    </div>
-
-    <!-- Chatbot Modal -->
-    <div class="modal fade chatbot-modal" id="chatbotModal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Chat with a Specialist</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="lead mb-4">OK! Let me transfer you to a representative. What's your phone number and email?</p>
-                    <form id="chatbotForm" action="send_email.php" method="POST">
-                        <div class="mb-3">
-                            <input type="full name" class="form-control" name="full name" placeholder="Full Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Email" required>
-                        </div>
-                        <button type="submit" class="btn btn-cta">Submit</button>
-                    </form>
-                    <div id="chatbotThankYou" style="display: none;">
-                        <div class="text-center p-4">
-                            <h3>Thank You!</h3>
-                            <p>A representative will be with you shortly.</p>
-                            <button class="btn btn-cta" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Rest of your original content -->
-    <!-- Hero Section -->
-    <section class="hero-section text-center">
+    <!-- Navigation Bar with Logo -->
+    <nav class="navbar">
         <div class="container">
-            <h1 class="display-4 mb-4 fw-light">
-                Discover Your Home's Value<br>
-                <span class="fw-normal">Nationwide Expertise, Local Results</span>
-            </h1>
-            <button class="btn btn-cta btn-lg mt-4" data-bs-toggle="modal" data-bs-target="#valuationModal">
-                🏡 Start Free Valuation
-            </button>
+            <div class="company-brand">
+                <span>Nestshift</span> <span>Solutions</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 mb-4">AI Targeted Real Estate Leads</h1>
+            <p class="lead">With over 30+ property datasets to make your prospecting seamless.</p>
+            <p class="lead">Access data like <strong>motivation, Liens, LTV, Estimated Loans, and many more</strong> to close deals faster.</p>
+            <p class="lead-price">Leads start at <strong>$0.70 each</strong>!</p>
+            <a href="#sample-data" class="btn btn-cta btn-lg">Explore Data</a>
+            <a href="#lead-form" class="btn btn-cta btn-lg">Get Leads</a>
         </div>
     </section>
 
-    <!-- Valuation Modal -->
-    <div class="modal fade" id="valuationModal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-body p-5">
-                    <!-- Step 1: Form -->
-                    <div id="valuationStep1">
-                        <h3 class="mb-4">Get Your Instant Estimate</h3>
-                        <form id="valuationForm" action="send_email.php" method="POST">
-                         <div class="row g-3">
-                                <div class="col-12">
-                                    <input type="text" class="form-control" name="address" placeholder="Property Address" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select" name="condition" required>
-                                        <option value="">Select Property Condition</option>
-                                        <option>Excellent</option>
-                                        <option>Good</option>
-                                        <option>Needs Work</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="consent" required>
-                                        <label class="form-check-label small">
-                                            I agree to receive real estate insights,marketing, and potential offers, Message and data rates may apply, I agree to the privacy policy and know I can opt out at any time.
-                                        </label>
-                                    </div>
-                                </div>
+    <!-- Sample Property Data Section -->
+    <section id="sample-data" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Sample Property Data</h2>
+            <p class="sample-data-note">This sample list set is property data for basic $0.70 leads.</p>
+            <div class="table-responsive">
+                <table class="property-table">
+                    <thead>
+                        <tr>
+                            <th>Property Type</th>
+                            <th>Bedrooms</th>
+                            <th>Bathrooms</th>
+                            <th>Total Sq. Ft.</th>
+                            <th>Lot Size</th>
+                            <th>Year Built</th>
+                            <th>Est. Value</th>
+                            <th>Est. Loan</th>
+                            <th>Est. Equity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Single Family Res*</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>3210</td>
+                            <td>6649</td>
+                            <td>2008</td>
+                            <td>$1,099,000</td>
+                            <td>$501,759</td>
+                            <td>$665,241</td>
+                        </tr>
+                        <tr>
+                            <td>Single Family Res*</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>3676</td>
+                            <td>5509</td>
+                            <td>2017</td>
+                            <td>$1,378,000</td>
+                            <td>$368,004</td>
+                            <td>$1,106,966</td>
+                        </tr>
+                        <tr>
+                            <td>Condominium (Res)</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>603</td>
+                            <td>14646</td>
+                            <td>2019</td>
+                            <td>$369,000</td>
+                            <td>$0</td>
+                            <td>$408,000</td>
+                        </tr>
+                        <tr>
+                            <td>Single Family Res*</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>1050</td>
+                            <td>7125</td>
+                            <td>1952</td>
+                            <td>$482,000</td>
+                            <td>$518,186</td>
+                            <td>$395,014</td>
+                        </tr>
+                        <tr>
+                            <td>Single Family Res*</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>684</td>
+                            <td>10642</td>
+                            <td>1990</td>
+                            <td>$362,000</td>
+                            <td>$214,680</td>
+                            <td>$195,320</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Skip/Web Scrub Section -->
+    <section class="advanced-features">
+        <div class="container">
+            <h3>Advanced Skip/Web Scrub</h3>
+            <p>For users who need more detailed data, our <strong>Advanced Skip/Web Scrub</strong> service provides deeper insights, including:</p>
+            <ul class="list-unstyled">
+                <li>✅ Advanced property owner information</li>
+                <li>✅ Comprehensive lien and loan details</li>
+                <li>✅ Enhanced market analysis</li>
+                <li>✅ Customizable data filters</li>
+            </ul>
+            <p>Contact us to learn more about our advanced data solutions.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="lead-form" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="form-container">
+                        <h3 class="mb-4">Get Exclusive Leads for Your Market</h3>
+                        <p class="mb-4">Take back your valuable time. Get exclusive leads for your market - no lead you buy from us will ever be shared with another agent or investor.</p>
+                        <form id="investorForm" action="send_email.php" method="POST">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="full_name" placeholder="Full Name" required>
                             </div>
-                            <button type="submit" class="btn btn-cta mt-4 w-100">
-                                See My Estimate →
-                            </button>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="policyCheck" required>
+                                <label class="form-check-label" for="policyCheck">
+                                    I have read and accepted the privacy policy and I opt in to future contact with Nestshift Solutions. Message and data rates may apply.
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-cta w-100">Get Exclusive Leads</button>
                         </form>
                     </div>
-
-                    <!-- Step 2: Confirmation -->
-                    <div id="valuationStep2" style="display: none;">
-                        <div class="text-center p-5">
-                            <div class="mb-4" style="font-size: 4rem;">🎉</div>
-                            <h3 class="mb-3">Thank You!</h3>
-                            <p class="lead">A specialist will contact you within 24 hours</p>
-                            <p>Please check your email for updates and next steps.</p>
-                            <button class="btn btn-cta mt-4" data-bs-dismiss="modal">
-                                Close Window
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Seller Tools Section -->
-    <section class="py-5" style="background: var(--soft-gray);">
-        <div class="container">
-            <h2 class="text-center mb-5">Seller Tools</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5>Selling Cost Calculator</h5>
-                            <p>Estimate your net proceeds and closing costs</p>
-                            <a href="https://www.calculator.net/mortgage-calculator.html" class="btn btn-cta" target="_blank">
-                                Calculate Now
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Thank You Modal -->
+    <div class="modal fade thank-you-modal" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="thankYouModalLabel">🎉 Thank You for Choosing Nestshift Solutions!</h3>
+                </div>
+                <div class="modal-body">
+                    <p>A specialist will be with you shortly.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cta" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
@@ -332,59 +349,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Form Handling for Investor Modal
+        // Form Handling
         document.getElementById('investorForm').addEventListener('submit', function(e) {
             e.preventDefault();
             if (this.checkValidity()) {
+                // Hide the form
                 document.getElementById('investorForm').style.display = 'none';
-                document.getElementById('investorThankYou').style.display = 'block';
+
+                // Show the Thank You modal
+                const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+                thankYouModal.show();
             } else {
                 this.classList.add('was-validated');
             }
         });
-
-        // Form Handling for Chatbot Modal
-        document.getElementById('chatbotForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (this.checkValidity()) {
-                document.getElementById('chatbotForm').style.display = 'none';
-                document.getElementById('chatbotThankYou').style.display = 'block';
-            } else {
-                this.classList.add('was-validated');
-            }
-        });
-
-        // Form Handling for Valuation Modal
-        document.getElementById('valuationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (this.checkValidity()) {
-                document.getElementById('valuationStep1').style.display = 'none';
-                document.getElementById('valuationStep2').style.display = 'block';
-            } else {
-                this.classList.add('was-validated');
-            }
-        });
-
-        // Reset Modals on Close
-        const modals = ['investorModal', 'chatbotModal', 'valuationModal'];
-        modals.forEach(modalId => {
-            const modal = document.getElementById(modalId);
-            modal.addEventListener('hidden.bs.modal', function() {
-                const form = modal.querySelector('form');
-                const thankYou = modal.querySelector('[id$="ThankYou"]');
-                if (form) form.style.display = 'block';
-                if (thankYou) thankYou.style.display = 'none';
-                if (form) form.reset();
-            });
-        });
-
-        // Live Chat Animation Refresh
-        setInterval(() => {
-            const liveChat = document.querySelector('.live-chat');
-            liveChat.classList.remove('animate__pulse');
-            void liveChat.offsetWidth;
-            liveChat.classList.add('animate__pulse');
-        }, 7000);
     </script>
 </body>
 </html>
