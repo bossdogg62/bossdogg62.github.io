@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-16917543005');
     </script>
     <meta charset="UTF-8">
@@ -18,13 +18,13 @@
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="AI-Powered High-Volume Real Estate Leads for Agents & Investors | Nestshift Solutions">
     <meta property="og:description" content="Get AI-powered high-volume real estate leads for agents and investors. Affordable, personalized lead extraction campaigns starting at $0.70 per lead.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1564013799919-ab600027ffc6"> <!-- Replace with your property image URL -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1564013799919-ab600027ffc6">
     <meta property="og:url" content="https://www.nestshiftsolutions.com">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI-Powered High-Volume Real Estate Leads for Agents & Investors | Nestshift Solutions">
     <meta name="twitter:description" content="Get AI-powered high-volume real estate leads for agents and investors. Affordable, personalized lead extraction campaigns starting at $0.70 per lead.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1564013799919-ab600027ffc6"> <!-- Replace with your property image URL -->
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1564013799919-ab600027ffc6">
     <link rel="canonical" href="https://www.nestshiftsolutions.com">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <title>AI-Powered High-Volume Real Estate Leads for Agents & Investors | Nestshift Solutions</title>
@@ -42,12 +42,13 @@
         body {
             font-family: 'Roboto', sans-serif;
             color: var(--dark-gray);
+            font-size: 16px; /* Base font size for better readability on mobile */
         }
 
         .navbar {
             background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 10px 20px;
+            padding: 10px;
             position: fixed;
             top: 0;
             left: 0;
@@ -56,11 +57,11 @@
         }
 
         .company-brand {
-            font-size: 2rem;
+            font-size: 1.5rem; /* Smaller font size for mobile */
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             background: rgba(255,255,255,0.9);
-            padding: 10px 20px;
+            padding: 8px 12px; /* Reduced padding for mobile */
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
@@ -76,9 +77,18 @@
             background: linear-gradient(rgba(42,92,130,0.9), rgba(42,92,130,0.9)),
                         url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6') center/cover;
             color: white;
-            padding: 150px 0;
+            padding: 100px 20px; /* Reduced padding for mobile */
             text-align: center;
-            margin-top: 80px; /* To account for the fixed navbar */
+            margin-top: 60px; /* Adjusted for smaller navbar */
+        }
+
+        .hero-section h1 {
+            font-size: 2rem; /* Smaller heading for mobile */
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1rem; /* Smaller text for mobile */
         }
 
         .btn-cta {
@@ -86,6 +96,9 @@
             color: white;
             border: 2px solid rgba(255,255,255,0.3);
             transition: all 0.3s ease;
+            font-size: 1rem; /* Smaller button text for mobile */
+            padding: 10px 20px; /* Adjusted padding for mobile */
+            margin: 5px; /* Added margin for better spacing */
         }
         .btn-cta:hover {
             background: white;
@@ -95,7 +108,7 @@
 
         .form-container {
             background: white;
-            padding: 30px;
+            padding: 20px; /* Reduced padding for mobile */
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
@@ -104,10 +117,11 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            font-size: 0.9rem; /* Smaller font size for mobile tables */
         }
         .property-table th, .property-table td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 6px; /* Reduced padding for mobile */
             text-align: center;
         }
         .property-table th {
@@ -119,14 +133,14 @@
         }
 
         .lead-price {
-            font-size: 1.5rem;
+            font-size: 1.2rem; /* Smaller font size for mobile */
             font-weight: 700;
             color: var(--accent-gold);
             margin-top: 10px;
         }
 
         .sample-data-note {
-            font-size: 1rem;
+            font-size: 0.9rem; /* Smaller font size for mobile */
             color: var(--dark-gray);
             margin-bottom: 20px;
             text-align: center;
@@ -134,77 +148,38 @@
 
         .advanced-features {
             background: var(--soft-gray);
-            padding: 30px;
+            padding: 20px; /* Reduced padding for mobile */
             border-radius: 15px;
-            margin-top: 40px;
+            margin-top: 20px; /* Reduced margin for mobile */
             text-align: center;
         }
         .advanced-features h3 {
             color: var(--primary-blue);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            font-size: 1.5rem; /* Smaller heading for mobile */
         }
         .advanced-features p {
-            font-size: 1.1rem;
+            font-size: 1rem; /* Smaller text for mobile */
             color: var(--dark-gray);
-        }
-
-        /* Thank You Modal Styles */
-        .thank-you-modal .modal-content {
-            border-radius: 15px;
-            border: 2px solid var(--accent-gold);
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .thank-you-modal .modal-header {
-            border-bottom: none;
-            padding: 20px;
-            text-align: center;
-        }
-        .thank-you-modal .modal-body {
-            padding: 20px;
-            text-align: center;
-        }
-        .thank-you-modal .modal-body h3 {
-            color: var(--primary-blue);
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        .thank-you-modal .modal-body p {
-            font-size: 1.2rem;
-            color: var(--dark-gray);
-        }
-        .thank-you-modal .modal-footer {
-            border-top: none;
-            justify-content: center;
-            padding: 20px;
-        }
-        .thank-you-modal .btn-close {
-            display: none; /* Hide the default close button */
-        }
-
-        /* Sticky CTA Button */
-        .sticky-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
         }
 
         /* FAQ Section Styles */
         #faq {
             background: var(--soft-gray);
-            padding: 60px 0;
+            padding: 40px 0; /* Reduced padding for mobile */
         }
         #faq h2 {
             color: var(--primary-blue);
-            margin-bottom: 40px;
+            margin-bottom: 20px; /* Reduced margin for mobile */
             font-weight: 700;
+            font-size: 1.8rem; /* Smaller heading for mobile */
         }
         .accordion-button {
             background: white;
             color: var(--primary-blue);
             font-weight: 500;
             border: 1px solid rgba(0,0,0,0.1);
+            font-size: 1rem; /* Smaller font size for mobile */
         }
         .accordion-button:not(.collapsed) {
             background: white;
@@ -214,88 +189,26 @@
         .accordion-body {
             background: white;
             color: var(--dark-gray);
-        }
-
-        /* About Us Modal Styles */
-        .about-us-modal .modal-content {
-            border-radius: 15px;
-            border: 2px solid var(--accent-gold);
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .about-us-modal .modal-header {
-            border-bottom: none;
-            padding: 20px;
-            text-align: center;
-        }
-        .about-us-modal .modal-body {
-            padding: 20px;
-            text-align: center;
-        }
-        .about-us-modal .modal-body h3 {
-            color: var(--primary-blue);
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        .about-us-modal .modal-body p {
-            font-size: 1.2rem;
-            color: var(--dark-gray);
-        }
-        .about-us-modal .modal-footer {
-            border-top: none;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        /* Disclaimer Modal Styles */
-        .disclaimer-modal .modal-content {
-            border-radius: 15px;
-            border: 2px solid var(--accent-gold);
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .disclaimer-modal .modal-header {
-            border-bottom: none;
-            padding: 20px;
-            text-align: center;
-        }
-        .disclaimer-modal .modal-body {
-            padding: 20px;
-            text-align: left;
-        }
-        .disclaimer-modal .modal-body h3 {
-            color: var(--primary-blue);
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        .disclaimer-modal .modal-body p {
-            font-size: 1rem;
-            color: var(--dark-gray);
-            margin-bottom: 10px;
-        }
-        .disclaimer-modal .modal-footer {
-            border-top: none;
-            justify-content: center;
-            padding: 20px;
+            font-size: 0.9rem; /* Smaller font size for mobile */
         }
 
         /* Client Testimonials Section */
         #client-testimonials {
             background: var(--soft-gray);
-            padding: 60px 0;
+            padding: 40px 0; /* Reduced padding for mobile */
         }
         #client-testimonials h2 {
             color: var(--primary-blue);
-            margin-bottom: 40px;
+            margin-bottom: 20px; /* Reduced margin for mobile */
             font-weight: 700;
-            text-align: center;
+            font-size: 1.8rem; /* Smaller heading for mobile */
         }
         .testimonial-card {
             background: white;
-            padding: 20px;
+            padding: 15px; /* Reduced padding for mobile */
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced margin for mobile */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .testimonial-card:hover {
@@ -303,7 +216,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .testimonial-card p {
-            font-size: 1.1rem;
+            font-size: 0.9rem; /* Smaller font size for mobile */
             color: var(--dark-gray);
             margin-bottom: 0;
         }
@@ -311,6 +224,23 @@
             font-weight: 500;
             color: var(--primary-blue);
             margin-top: 10px;
+        }
+
+        /* Sticky CTA Button */
+        .sticky-cta {
+            position: fixed;
+            bottom: 10px; /* Adjusted position for mobile */
+            right: 10px; /* Adjusted position for mobile */
+            z-index: 1000;
+        }
+        .sticky-cta .btn {
+            font-size: 0.9rem; /* Smaller font size for mobile */
+            padding: 8px 16px; /* Adjusted padding for mobile */
+        }
+
+        /* Footer */
+        footer {
+            font-size: 0.9rem; /* Smaller font size for mobile */
         }
     </style>
     <!-- Schema Markup -->
