@@ -94,6 +94,26 @@
             color: var(--accent-gold);
         }
 
+        .navbar-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar-buttons .btn-cta {
+            background: var(--accent-gold);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            font-size: 0.9rem; /* Smaller font size */
+            padding: 8px 16px; /* Smaller padding */
+            margin: 5px;
+        }
+        .navbar-buttons .btn-cta:hover {
+            background: white;
+            color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
         .hero-section {
             background: linear-gradient(rgba(42,92,130,0.9), rgba(42,92,130,0.9)),
                         url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6') center/cover;
@@ -295,7 +315,9 @@
             <div class="company-brand">
                 <span>Nestshift</span> <span>Solutions</span>
             </div>
-            <div class="ms-auto">
+            <div class="navbar-buttons">
+                <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#aiCourseModal">🚀 $1 AI Course</button>
+                <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#buyerLeadsModal">🏡 Buyer Leads</button>
                 <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#aboutUsModal">About Us</button>
             </div>
         </div>
@@ -581,6 +603,44 @@
         </div>
     </div>
 
+    <!-- $1 AI Real Estate Course Modal -->
+    <div class="modal fade" id="aiCourseModal" tabindex="-1" aria-labelledby="aiCourseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="aiCourseModalLabel">🚀 $1 AI Real Estate Course</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Unlock the power of AI in real estate with our exclusive $1 course. Learn how to generate high-quality leads and close deals faster!</p>
+                    <!-- Google Form Embed Code -->
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSemQNNFt0M-bOCb6HOEiWdhFOeK9MOHIaN01sIR5VcNfarECQ/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cta" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buyer Leads Modal -->
+    <div class="modal fade" id="buyerLeadsModal" tabindex="-1" aria-labelledby="buyerLeadsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="buyerLeadsModalLabel">🏡 Exclusive Buyer Leads</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Access our exclusive buyer leads and close more deals today. Fill out the form below to get started!</p>
+                    <!-- Google Form Embed Code -->
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSemQNNFt0M-bOCb6HOEiWdhFOeK9MOHIaN01sIR5VcNfarECQ/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cta" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Disclaimer Modal -->
     <div class="modal fade disclaimer-modal" id="disclaimerModal" tabindex="-1" aria-labelledby="disclaimerModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -589,7 +649,13 @@
                     <h3 class="modal-title" id="disclaimerModalLabel">Disclaimer</h3>
                 </div>
                 <div class="modal-body">
-                    <!-- Disclaimer content here -->
+                    <p><strong>Nature of Leads:</strong> The leads provided are compiled from various sources and may include individuals with varying preferences regarding communication. It is your responsibility to ensure that your outreach methods comply with all applicable laws and regulations.</p>
+                    <p><strong>Compliance with Laws:</strong> You are solely responsible for ensuring that your marketing and outreach activities comply with all applicable laws, regulations, and guidelines, including but not limited to the Telephone Consumer Protection Act (TCPA), the CAN-SPAM Act, and the General Data Protection Regulation (GDPR) (if applicable).</p>
+                    <p><strong>Communication Methods:</strong> While email and direct mail are generally less restricted than phone calls, you must still comply with all applicable laws. For email marketing, ensure compliance with the CAN-SPAM Act, which requires providing a clear and conspicuous opt-out mechanism, including your physical mailing address in all emails, and avoiding deceptive subject lines or content. For direct mail, ensure compliance with postal regulations and avoid sending unsolicited mail to individuals who have explicitly opted out.</p>
+                    <p><strong>No Liability:</strong> We are not responsible for any violations of laws or regulations resulting from your use of the leads. By purchasing or using these leads, you agree to indemnify and hold us harmless from any claims, damages, or liabilities arising from your use of the leads.</p>
+                    <p><strong>Data Accuracy:</strong> While we strive to provide accurate and up-to-date information, we cannot guarantee the accuracy, completeness, or reliability of the leads. It is your responsibility to verify the information before use.</p>
+                    <p><strong>Ethical Use:</strong> You agree to use the leads ethically and responsibly. Misuse of the leads, including but not limited to harassment, fraud, or illegal activities, is strictly prohibited.</p>
+                    <p><strong>Acknowledgment:</strong> By purchasing or using these leads, you acknowledge that you have read and understood this disclaimer. You are solely responsible for ensuring compliance with all applicable laws and regulations, and you will not hold us liable for any consequences arising from your use of the leads.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-cta" data-bs-dismiss="modal">Close</button>
